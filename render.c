@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/22 11:40:36 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:41:52 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static  void my_pixel_put(int x, int y, t_img * img, int color)
 {
 	int pixel_movement;
 	pixel_movement = ( y * img->line_len) + (x * (img->bpp / 8));
-	*(img->pixels_ptr + pixel_movement) = color;
+	/**(img->pixels_ptr + pixel_movement) = color;*/
+	*(unsigned int *)(img ->pixels_ptr + pixel_movement) = color;
 }
 
 //check if the point is mandelbrot or not (imprtant)
@@ -55,7 +56,7 @@ static void    manage_pixel(int x, int y, t_fractal *fractal)
 	}
 	
 	// if we are insade we are in mandelbrot
-	my_pixel_put(x, y, &fractal->img, FLAMINGO_PINK ); 
+	my_pixel_put(x, y, &fractal->img, OUTRAGEOUS_ORANGE ); 
 }
 
 
