@@ -1,4 +1,4 @@
-######Frac-ol
+###### Frac-ol
 Frac-ol is one of the first graphic projects from the 42 School Common-Core. This project is a fractal generator implemented entirely in C using MiniLibX, the 42 School's own graphics library. The project includes implementations of both the Julia and Mandelbrot fractals.
 
 Features
