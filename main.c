@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:49:01 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/21 22:50:15 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/05/25 19:07:37 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(int ac, char **av)
         
         fractal.name = av[1];
         fractal_init(&fractal);
+        
         fractal_render(&fractal);
         mlx_loop(fractal.mlx_connection);
         // Código para manejar mandelbrot o julia set

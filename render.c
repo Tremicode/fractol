@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/22 13:41:52 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/05/26 16:05:23 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void    manage_pixel(int x, int y, t_fractal *fractal)
 	z.real = 0.0;
 	z.imaginary = 0.0;
 	// pixel coordinate scaled to fint mandelbrot needs
-	c.real = map(x, -2, +2, 0, WIDTH); 
-	c.imaginary = map(y, +2, -2, 0, HEIGHT); 
+	c.real = map(x, -2, +2, 0, WIDTH) + fractal->shift_x;
+	c.imaginary = map(y, +2, -2, 0, HEIGHT) + fractal->shift_y;
 	//printf("%d \n",fractal->image_quality_iteration);
 	//exit(1);
 	//how many times to iterate z 2 +c to check if the point scape
@@ -46,7 +46,7 @@ static void    manage_pixel(int x, int y, t_fractal *fractal)
 		z = sum_complex(square_complex(z), c);
 		if((z.real * z.real) + (z.imaginary * z.imaginary) > 4) //value escaped, hypotenuse >2 i asunnw the point escaped
 		{
-			color = map(i, BLACK, WHITE, 0, 1900); 
+			color = map(i, BLACK, WHITE, 0, 400); 
 			my_pixel_put(x, y,&fractal->img, color); 
 			return ;
 		}
@@ -56,7 +56,7 @@ static void    manage_pixel(int x, int y, t_fractal *fractal)
 	}
 	
 	// if we are insade we are in mandelbrot
-	my_pixel_put(x, y, &fractal->img, OUTRAGEOUS_ORANGE ); 
+	my_pixel_put(x, y, &fractal->img, GREEN_FLUORESCENT); 
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/21 22:30:22 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/05/26 17:18:20 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 # define FRACTOL_H
 
 # include "minilibx-linux/mlx.h"
+# include <X11/keysym.h>
 # include <X11/X.h>
 # include <math.h>
 # include <stdio.h>  // debugging
 # include <stdlib.h> //malloc
 # include <unistd.h>
 
-# define HEIGHT 800
-# define WIDTH 800
+# define HEIGHT 1000
+# define WIDTH 1000
 
 // (formato RGB hexadecimal)
 # define BLACK         0x000000 // Negro
@@ -45,6 +46,11 @@
 # define SPRING_GREEN         0x00FF7F // Verde primavera
 # define ELECTRIC_LIME        0xCCFF00 // Lima eléctrica
 # define OUTRAGEOUS_ORANGE    0xFF6E4A // Naranja escandaloso
+# define NEON_PINK		0xFF6EC7 // pink
+# define GREEN_FLUORESCENT  0x39FF14
+
+
+
 
 
 
@@ -56,7 +62,7 @@ typedef struct  s_img
 	char    *pixels_ptr; // list pixeles de la imagen
 	int     bpp;//label bits en cada pixel
 	int     endian;
-	int     line_len; // how many pixeles per line
+	int     line_len; // how many pixeles per line image_quality_iteration;
 }               t_img; // nickname 
 
 //fractal id, mlx.image, hooks value
@@ -66,9 +72,20 @@ typedef struct  s_fractal
 	void	*mlx_connection; // mlx_init
 	void	*mlx_window; 
 	t_img	img;// white canvas
+	
+	//hooks member variables 
 	double escape_value; // hypotenuse
 	int     image_quality_iteration; // quality interations speed
+	//int process_key int Keysym, t_fractal *fractal;
+	double	shift_x;
+	double	shift_y;
+
+
+	
 }       t_fractal;
+//hook events
+
+int    process_close(t_fractal *fractal);// close esc or x window.
 
 typedef struct s_complex // estructura creada porque no compila.
 {
@@ -76,20 +93,26 @@ typedef struct s_complex // estructura creada porque no compila.
 	double  imaginary;
 }       t_complex;
 
-
+void	fractal_init(t_fractal *fractal);
 
 /*fractal_render(&fractal); //render*/
 void    fractal_render(t_fractal *fractal);
-
+void events(t_fractal *fractal);
 int		ft_strncmp(char *s1, char *s2, int n);
 void	putstr_fd(char *s, int fd);
-void    fractal_init(t_fractal *fractal);
+//void    fractal_init(t_fractal *fractal);
+int process_Key(int Keysym, t_fractal *fractal);
 
 //math
 double      map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_complex   sum_complex(t_complex z1, t_complex z2);
 t_complex   square_complex(t_complex z);
 
+/*//hooks events
+int process_key(int Keysym, t_fractal *fractal);
+int	iterations_defintion;
+double	shift_x;
+double	shift_y;*/
 
 #endif
 
