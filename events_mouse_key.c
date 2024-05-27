@@ -6,12 +6,13 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:56:18 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/26 17:17:57 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:58:53 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <stdio.h>
+#include <X11/keysym.h>
 //#include "minilibx-linux/mlx.h"
 
 //keypress protype from manual
@@ -27,12 +28,12 @@ int process_Key(int Keysym, t_fractal *fractal)
         fractal->shift_y -= 0.5;
     else if (Keysym == XK_Down)
         fractal->shift_y += 0.5;
-    else if (Keysym == XK_plus)
-            fractal-> image_quality_iteration += 5;
-    else if (Keysym == XK_minus)
-            fractal-> image_quality_iteration -= 5;
+    else if (Keysym == XK_plus || Keysym == XK_KP_Add)
+            fractal->image_quality_iteration += 5;
+    else if (Keysym == XK_minus || Keysym == XK_KP_Subtract)
+            fractal->image_quality_iteration -= 5;
             
-        fractal_render(fractal);// refresh the image
+    fractal_render(fractal);// refresh the image
     /*printf("%d %f %f \n", Keysym, fractal->shift_x, fractal->shift_y);*/
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/26 16:05:23 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:57:48 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ y = -1;
 	}
 
 	mlx_put_image_to_window(fractal->mlx_connection,
-							fractal->mlx_window,
-							fractal->img.img_ptr,
-							0, 0);	
+												fractal->mlx_window,
+												fractal->img.img_ptr,
+												0, 0);	
 
 }

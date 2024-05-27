@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 18:35:55 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/26 16:03:06 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:00:51 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@
 static void	malloc_error(void)
 {
 	perror("Problems with malloc");
-//s:
+
 	exit(EXIT_FAILURE);
 }
 
 
 
 
-static void	data_init(t_fractal *fractal)
+static void		data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4; // hypotenusa 2 al cuadrado
 	fractal->image_quality_iteration = 42;

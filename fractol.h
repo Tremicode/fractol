@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/26 17:18:20 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:28:20 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct  s_img
 }               t_img; // nickname 
 
 //fractal id, mlx.image, hooks value
-typedef struct  s_fractal
+typedef struct  s_fractal//s o t porque 
 {
 	char	*name;
 	void	*mlx_connection; // mlx_init
@@ -81,6 +81,7 @@ typedef struct  s_fractal
 	double	shift_y;
 
 
+
 	
 }       t_fractal;
 //hook events
@@ -92,6 +93,7 @@ typedef struct s_complex // estructura creada porque no compila.
 	double  real;
 	double  imaginary;
 }       t_complex;
+
 
 void	fractal_init(t_fractal *fractal);
 
@@ -110,9 +112,12 @@ t_complex   square_complex(t_complex z);
 
 /*//hooks events
 int process_key(int Keysym, t_fractal *fractal);
-int	iterations_defintion;
+int	image_quality_iteration;
 double	shift_x;
 double	shift_y;*/
+
+//prueba para iterar imagen
+
 
 #endif
 
