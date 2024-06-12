@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/27 15:28:20 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:19:27 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,32 @@
 # include <stdlib.h> //malloc
 # include <unistd.h>
 
-# define HEIGHT 1000
-# define WIDTH 1000
+# define HEIGHT 900
+# define WIDTH 900
 
 // (formato RGB hexadecimal)
-# define BLACK         0x000000 // Negro
-# define WHITE         0xFFFFFF // Blanco
-# define RED           0xFF0000 // Rojo
-# define GREEN         0x00FF00 // Verde
-# define BLUE          0x0000FF // Azul
-# define YELLOW        0xFFFF00 // Amarillo
-# define CYAN          0x00FFFF // Cian
-# define MAGENTA       0xFF00FF // Magenta
-# define HOT_PINK      0xFF69B4 // Rosa fosforescente
-# define LIME_GREEN    0x32CD32 // Verde lima
-# define ELECTRIC_PURPLE 0xBF00FF // Púrpura eléctrico
-# define NEON_GREEN           0x39FF14 // Verde neón
-# define SHOCKING_PINK        0xFC0FC0 // Rosa impactante
-# define VIVID_ORANGE         0xFFA500 // Naranja vivo
-# define FLAMINGO_PINK        0xFC8EAC // Rosa flamenco
-# define LASER_LEMON          0xFFFF66 // Limón láser
-# define ULTRAMARINE_BLUE     0x3F00FF // Azul ultramarino
-# define RAZZMATAZZ           0xE3256B // Rojo frambuesa
-# define SPRING_GREEN         0x00FF7F // Verde primavera
-# define ELECTRIC_LIME        0xCCFF00 // Lima eléctrica
-# define OUTRAGEOUS_ORANGE    0xFF6E4A // Naranja escandaloso
-# define NEON_PINK		0xFF6EC7 // pink
+# define BLACK         0x000000 
+# define WHITE         0xFFFFFF 
+# define RED           0xFF0000 
+# define GREEN         0x00FF00 
+# define BLUE          0x0000FF 
+# define YELLOW        0xFFFF00 
+# define CYAN          0x00FFFF 
+# define MAGENTA       0xFF00FF 
+# define HOT_PINK      0xFF69B4 
+# define LIME_GREEN    0x32CD32 
+# define ELECTRIC_PURPLE 0xBF00FF 
+# define NEON_GREEN           0x39FF14 
+# define SHOCKING_PINK        0xFC0FC0 
+# define VIVID_ORANGE         0xFFA500 
+# define FLAMINGO_PINK        0xFC8EAC 
+# define LASER_LEMON          0xFFFF66 
+# define ULTRAMARINE_BLUE     0x3F00FF 
+# define RAZZMATAZZ           0xE3256B 
+# define SPRING_GREEN         0x00FF7F 
+# define ELECTRIC_LIME        0xCCFF00 
+# define OUTRAGEOUS_ORANGE    0xFF6E4A 
+# define NEON_PINK		0xFF6EC7 
 # define GREEN_FLUORESCENT  0x39FF14
 
 
@@ -84,9 +84,15 @@ typedef struct  s_fractal//s o t porque
 
 	
 }       t_fractal;
+
+// prototipos 
+
 //hook events
 
 int    process_close(t_fractal *fractal);// close esc or x window.
+
+//render
+void	fractal_render(t_fractal * fractal);
 
 typedef struct s_complex // estructura creada porque no compila.
 {
@@ -97,26 +103,32 @@ typedef struct s_complex // estructura creada porque no compila.
 
 void	fractal_init(t_fractal *fractal);
 
-/*fractal_render(&fractal); //render*/
+//fractal_render(&fractal); //render*/
 void    fractal_render(t_fractal *fractal);
 void events(t_fractal *fractal);
+
+//strings utils 
 int		ft_strncmp(char *s1, char *s2, int n);
 void	putstr_fd(char *s, int fd);
-//void    fractal_init(t_fractal *fractal);
-int process_Key(int Keysym, t_fractal *fractal);
+
+//fractal init
+void    fractal_init(t_fractal *fractal);
+
 
 //math
 double      map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_complex   sum_complex(t_complex z1, t_complex z2);
 t_complex   square_complex(t_complex z);
 
-/*//hooks events
-int process_key(int Keysym, t_fractal *fractal);
-int	image_quality_iteration;
-double	shift_x;
-double	shift_y;*/
 
-//prueba para iterar imagen
+//hooks events
+int proccess_key(int Keysym, t_fractal *fractal);
+
+
+
+
+
+
 
 
 #endif

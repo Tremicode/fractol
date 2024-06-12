@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/27 13:57:48 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:21:50 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,48 +16,52 @@
 
 static  void my_pixel_put(int x, int y, t_img * img, int color)
 {
-	int pixel_movement;
-	pixel_movement = ( y * img->line_len) + (x * (img->bpp / 8));
-	/**(img->pixels_ptr + pixel_movement) = color;*/
-	*(unsigned int *)(img ->pixels_ptr + pixel_movement) = color;
+    int pixel_movement;
+
+
+    // Calcular la posición del píxel en el buffer
+    pixel_movement = (y * img->line_len) + (x * (img->bpp / 8));
+
+    // Colocar el color en la posición calculada del buffer
+    *(unsigned int *)(img->pixels_ptr + pixel_movement) = color;
 }
 
-//check if the point is mandelbrot or not (imprtant)
-
-static void    manage_pixel(int x, int y, t_fractal *fractal)
+	
+//prueba1
+static void manage_pixel(int x, int y, t_fractal *fractal)
 {
-	t_complex	z;
-	t_complex	c;
-	int			i;
-	int			color;
-	
-	i = 0;
-	// 1 iteration
-	z.real = 0.0;
-	z.imaginary = 0.0;
-	// pixel coordinate scaled to fint mandelbrot needs
-	c.real = map(x, -2, +2, 0, WIDTH) + fractal->shift_x;
-	c.imaginary = map(y, +2, -2, 0, HEIGHT) + fractal->shift_y;
-	//printf("%d \n",fractal->image_quality_iteration);
-	//exit(1);
-	//how many times to iterate z 2 +c to check if the point scape
-	while  (i < 200)
-	{
-		z = sum_complex(square_complex(z), c);
-		if((z.real * z.real) + (z.imaginary * z.imaginary) > 4) //value escaped, hypotenuse >2 i asunnw the point escaped
-		{
-			color = map(i, BLACK, WHITE, 0, 400); 
-			my_pixel_put(x, y,&fractal->img, color); 
-			return ;
-		}
-		++i;
-		//printf("%f %f %d \n",z.real,z.imaginary, i);
-		
-	}
-	
-	// if we are insade we are in mandelbrot
-	my_pixel_put(x, y, &fractal->img, GREEN_FLUORESCENT); 
+    t_complex z;
+    t_complex c;
+    int i;
+    int color;
+
+    // Inicialización
+    z.real = 0.0;
+    z.imaginary = 0.0;
+
+    // Escalar las coordenadas del pixel para el conjunto de Mandelbrot
+    c.real = map(x, 0, WIDTH, -2, 2) + fractal->shift_x;
+    c.imaginary = map(y, 0, HEIGHT, -2, 2) + fractal->shift_y;
+
+    // Iterar para ver si el punto escapa
+    i = 0;
+    while (i < fractal->image_quality_iteration)
+    {
+        z = sum_complex(square_complex(z), c);
+        if ((z.real * z.real) + (z.imaginary * z.imaginary) > 4)
+        {
+            // Valor escapado
+            color = map(i, 0, fractal->image_quality_iteration, WHITE, BLACK); 
+            my_pixel_put(x, y, &fractal->img, color);
+            return;
+        }
+        ++i;
+    }
+
+    // Si no escapa, es parte del conjunto de Mandelbrot
+    my_pixel_put(x, y, &fractal->img, GREEN_FLUORESCENT);
 }
+
 
 
 

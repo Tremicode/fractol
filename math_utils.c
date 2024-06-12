@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 19:41:02 by ctremino          #+#    #+#             */
-/*   Updated: 2024/05/21 22:09:58 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/10 11:08:26 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 // from (0 to 799) (-2 to +2)
 
-double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
+/*double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
 {
     return (new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min;
+}*/
+double map(double unscaled_num, double old_min, double old_max, double new_min, double new_max)
+{
+    return new_min + ((unscaled_num - old_min) * (new_max - new_min) / (old_max - old_min));
 }
+
 //sum complex
 
 t_complex   sum_complex(t_complex z1, t_complex z2)
