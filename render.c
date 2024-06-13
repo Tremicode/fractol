@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/12 13:21:50 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:51:08 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static void manage_pixel(int x, int y, t_fractal *fractal)
     z.imaginary = 0.0;
 
     // Escalar las coordenadas del pixel para el conjunto de Mandelbrot
-    c.real = map(x, 0, WIDTH, -2, 2) + fractal->shift_x;
-    c.imaginary = map(y, 0, HEIGHT, -2, 2) + fractal->shift_y;
+    c.real = (map(x, 0, WIDTH, -2, 2)*fractal->zoom) + fractal->shift_x;
+    c.imaginary = (map(y, 0, HEIGHT, -2, 2)*fractal->zoom) + fractal->shift_y;
 
     // Iterar para ver si el punto escapa
     i = 0;

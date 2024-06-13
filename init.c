@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 18:35:55 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/12 13:12:12 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:48:29 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void		data_init(t_fractal *fractal)
 	fractal->image_quality_iteration = 52;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
+	fractal->zoom = 1.0; //zoom factor 
 }
 
 void	fractal_init(t_fractal *fractal)

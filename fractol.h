@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/12 13:19:27 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/13 13:22:09 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@
 # define NEON_PINK		0xFF6EC7 
 # define GREEN_FLUORESCENT  0x39FF14
 
+/*#define Button4 4
+#define Button5 5*/
+
+
 
 
 
@@ -73,12 +77,13 @@ typedef struct  s_fractal//s o t porque
 	void	*mlx_window; 
 	t_img	img;// white canvas
 	
-	//hooks member variables 
+	//hooks member variables **
 	double escape_value; // hypotenuse
 	int     image_quality_iteration; // quality interations speed
 	//int process_key int Keysym, t_fractal *fractal;
 	double	shift_x;
 	double	shift_y;
+	double	zoom;
 
 
 
@@ -122,7 +127,11 @@ t_complex   square_complex(t_complex z);
 
 
 //hooks events
-int proccess_key(int Keysym, t_fractal *fractal);
+int process_key(int Keysym, t_fractal *fractal);
+int process_mouse(int button, int x, int y, t_fractal *fractal);
+
+
+
 
 
 
