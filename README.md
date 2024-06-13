@@ -7,3 +7,4 @@ Mandelbrot Set: Generate and visualize the Mandelbrot fractal.
 MiniLibX Integration: Utilizes the MiniLibX library for graphical rendering.
 Requirements
 MiniLibX: Ensure you have the MiniLibX library installed. You can find the installation instructions for your specific system in the MiniLibX repository.
+Images 
