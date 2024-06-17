@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/13 13:22:09 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:07:15 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <stdlib.h> //malloc
 # include <unistd.h>
 
-# define HEIGHT 900
-# define WIDTH 900
+/*# define HEIGHT 600
+# define WIDTH 600*/
 
 // (formato RGB hexadecimal)
 # define BLACK         0x000000 
@@ -84,6 +84,8 @@ typedef struct  s_fractal//s o t porque
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
+	int	HEIGHT;
+	int WIDTH;
 
 
 
