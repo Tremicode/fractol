@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 18:35:55 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/17 20:15:13 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:18:58 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ static void		data_init(t_fractal *fractal)
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0; //zoom factor 
-	fractal->WIDTH = 700;
-	fractal->HEIGHT = 700;
+	fractal->WIDTH = 750;
+	fractal->HEIGHT = 750;
+
 }
 
 void	fractal_init(t_fractal *fractal)
@@ -64,4 +65,3 @@ void	fractal_init(t_fractal *fractal)
 	
 	events(fractal);
 }
-// loop falta

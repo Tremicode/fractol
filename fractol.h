@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/17 20:07:15 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:44:51 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,6 @@
 # define NEON_PINK		0xFF6EC7 
 # define GREEN_FLUORESCENT  0x39FF14
 
-/*#define Button4 4
-#define Button5 5*/
-
-
-
-
-
 
 
 # define ERROR_MESSAGE "please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n"
@@ -89,7 +82,7 @@ typedef struct  s_fractal//s o t porque
 
 
 
-	
+	 /*t_color colors[24];*/
 }       t_fractal;
 
 // prototipos 

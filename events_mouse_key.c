@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:56:18 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/17 20:02:11 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:58:30 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int process_Key(int Keysym, t_fractal *fractal)
    if (Keysym == XK_Escape)
        process_close(fractal);
      if (Keysym == XK_Right)
-        fractal->shift_x -= (0.05 * (1/ fractal->zoom));
+        fractal->shift_x -= (0.03 * (1/ fractal->zoom));
     else if (Keysym == XK_Left)
-        fractal->shift_x += (0.05 * (1/fractal->zoom));
+        fractal->shift_x += (0.03 * (1/fractal->zoom));
     else if (Keysym == XK_Up)
-        fractal->shift_y += (0.05 * (1/fractal->zoom));
+        fractal->shift_y += (0.03 * (1/fractal->zoom));
     else if (Keysym == XK_Down)
-        fractal->shift_y -= (0.05 * (1/fractal->zoom));
+        fractal->shift_y -= (0.03 * (1/fractal->zoom));
     else if (Keysym == XK_plus || Keysym == XK_KP_Add)
             fractal->image_quality_iteration += 5;
     else if (Keysym == XK_minus || Keysym == XK_KP_Subtract)
@@ -54,13 +54,13 @@ int    process_close(t_fractal *fractal)
 
 int process_mouse(int button, int x, int y, t_fractal *fractal)
 {
-    if (button==Button4)// zoom in smooth = 0.98
+    if (button==Button4)// zoom in smooth = 0.98 1.7
     {
-        fractal->zoom *=1.7;
+        fractal->zoom *= 1.7;
     }
-    else if (button==Button5)// zoom out smooth = 1.02
+    else if (button==Button5)// zoom out smooth = 1.02 0.3
     {
-        fractal->zoom *= 0.3;
+        fractal->zoom *= 0.2;
     }
       fractal->shift_y = (map(y, 0, fractal->HEIGHT, -2, 2)*(1/fractal->zoom)) + fractal->shift_y;
      fractal->shift_x = (map(x, 0, fractal->WIDTH, -2, 2)*(1/fractal->zoom)) + fractal->shift_x;
