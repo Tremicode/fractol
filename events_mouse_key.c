@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:56:18 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/19 22:58:30 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:42:56 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int process_mouse(int button, int x, int y, t_fractal *fractal)
 {
     if (button==Button4)// zoom in smooth = 0.98 1.7
     {
-        fractal->zoom *= 1.7;
+        fractal->zoom *= 1.3;
     }
     else if (button==Button5)// zoom out smooth = 1.02 0.3
     {
