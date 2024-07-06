@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/25 15:37:36 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:21:31 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,19 @@ static  void my_pixel_put(int x, int y, t_img * img, int color)
     // Colocar el color en la posición calculada del buffer
     *(unsigned int *)(img->pixels_ptr + pixel_movement) = color;
 }
-
+static void mandelbrot_julia(t_complex *z, t_complex *c, t_fractal *fractal)
+{
+    if (!ft_strncmp(fractal->name, "julia", 5))
+    {
+        c->real = fractal-> julia_x;
+        c->imaginary = fractal-> julia_y;
+    }
+    else
+    {
+        c->real = z->real;
+        c->imaginary = z->imaginary;
+    }
+}
 	
 //prueba1
 static void manage_pixel(int x, int y, t_fractal *fractal)
@@ -35,16 +47,13 @@ static void manage_pixel(int x, int y, t_fractal *fractal)
     int i;
     int color;
 
-    // Inicialización
-    z.real = 0.0;
-    z.imaginary = 0.0;
-
+    i = 0;// iterar para ver el punto escapa
     // Escalar las coordenadas del pixel para el conjunto de Mandelbrot
-    c.real = (map(x, 0, fractal->WIDTH, -2, 2)*(1 /fractal->zoom)) + fractal->shift_x;
-    c.imaginary = (map(y, 0, fractal->HEIGHT, -2, 2)*(1/fractal->zoom)) + fractal->shift_y;
+    z.real = (map(x, 0, fractal->WIDTH, -2, 2)*(1 /fractal->zoom)) + fractal->shift_x;
+    z.imaginary = (map(y, 0, fractal->HEIGHT, -2, 2)*(1/fractal->zoom)) + fractal->shift_y;
 
-    // Iterar para ver si el punto escapa
-    i = 0;
+    mandelbrot_julia(&z, &c, fractal);
+    
     while (i < fractal->image_quality_iteration)
     {
         z = sum_complex(square_complex(z), c);

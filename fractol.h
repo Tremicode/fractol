@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/06/19 19:44:51 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/07/04 14:36:58 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ typedef struct  s_fractal//s o t porque
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
+	double	julia_x;
+	double	julia_y;
 	int	HEIGHT;
 	int WIDTH;
 
@@ -110,6 +112,7 @@ void events(t_fractal *fractal);
 //strings utils 
 int		ft_strncmp(char *s1, char *s2, int n);
 void	putstr_fd(char *s, int fd);
+double  atofdouble(char *s);
 
 //fractal init
 void    fractal_init(t_fractal *fractal);
