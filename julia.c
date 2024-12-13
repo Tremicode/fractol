@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:49:16 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/12 19:32:33 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/13 12:41:17 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ double	atofdouble(char *s)
 	long	int_part;
 	double	fraction_part;
 	double	divisor;
-	int	sign;
+	int		sign;
 
 	int_part = 0;
 	fraction_part = 0;
 	divisor = 1;
 	sign = +1;
-
 	while ((*s >= 9 && *s <= 13) || 32 == *s)
 		++s;
 	while ('-' == *s || '+' == *s)
