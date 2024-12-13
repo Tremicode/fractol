@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/12 17:50:19 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:21:55 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 static void	my_pixel_put(int x, int y, t_img *img, int color)
 {
 	int	pixel_movement;
-
 	// Calcular la posición del píxel en el buffer
 	pixel_movement = (y * img->line_len) + (x * (img->bpp / 8));
 	// Colocar el color en la posición calculada del buffer
@@ -37,7 +36,7 @@ static void	mandelbrot_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 	}
 }
 
-// prueba1
+// itera ver punto escapa, escalar coordenadas Mand
 static void	manage_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
@@ -45,8 +44,8 @@ static void	manage_pixel(int x, int y, t_fractal *fractal)
 	int			i;
 	int			color;
 
-	i = 0; // iterar para ver el punto escapa
-	// Escalar las coordenadas del pixel para el conjunto de Mandelbrot
+	i = 0; 
+	
 	z.real = (map(x, 0, fractal->WIDTH, -2, 2) * (1 / fractal->zoom))
 		+ fractal->shift_x;
 	z.imaginary = (map(y, 0, fractal->HEIGHT, -2, 2) * (1 / fractal->zoom))
@@ -64,14 +63,13 @@ static void	manage_pixel(int x, int y, t_fractal *fractal)
 		}
 		++i;
 	}
-	// Si no escapa, es parte del conjunto de Mandelbrot
-	my_pixel_put(x, y, &fractal->img, GREEN_FLUORESCENT);
+	my_pixel_put(x, y, &fractal->img, GREEN_FLUORESCENT); // si no escapa, es parte del mandelbrot
 }
 
 void	fractal_render(t_fractal *fractal)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = -1;
 	while (++y < fractal->HEIGHT)
@@ -82,7 +80,6 @@ void	fractal_render(t_fractal *fractal)
 			manage_pixel(x, y, fractal);
 		}
 	}
-
 	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window,
 		fractal->img.img_ptr, 0, 0);
 }

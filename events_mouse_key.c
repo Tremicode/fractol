@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:56:18 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/12 17:49:44 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/12 20:30:11 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	process_Key(int Keysym, t_fractal *fractal)
 	if (Keysym == XK_Escape)
 		process_close(fractal);
 	if (Keysym == XK_Right)
-		fractal->shift_x -= (0.03 * (1 / fractal->zoom));
-	else if (Keysym == XK_Left)
 		fractal->shift_x += (0.03 * (1 / fractal->zoom));
+	else if (Keysym == XK_Left)
+		fractal->shift_x -= (0.03 * (1 / fractal->zoom));
 	else if (Keysym == XK_Up)
-		fractal->shift_y += (0.03 * (1 / fractal->zoom));
-	else if (Keysym == XK_Down)
 		fractal->shift_y -= (0.03 * (1 / fractal->zoom));
+	else if (Keysym == XK_Down)
+		fractal->shift_y += (0.03 * (1 / fractal->zoom));
 	else if (Keysym == XK_plus || Keysym == XK_KP_Add)
 		fractal->image_quality_iteration += 5;
 	else if (Keysym == XK_minus || Keysym == XK_KP_Subtract)

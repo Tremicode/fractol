@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:49:01 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/12 19:09:58 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:29:20 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_fractal fractal;
+	t_fractal	fractal;
 
 	if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
 	{
@@ -26,12 +26,11 @@ int	main(int argc, char **argv)
 	else if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)))
 	{
 		fractal.name = argv[1];
-		// Código para manejar mandelbrot o julia set
 	}
 	else
 	{
-		putstr_fd(ERROR_MESSAGE, STDERR_FILENO); // s: fd:
-		exit(EXIT_FAILURE);                      // status:
+		putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+		exit(EXIT_FAILURE);
 	}
 	fractal_init(&fractal);
 	fractal_render(&fractal);

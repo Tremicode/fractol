@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 19:41:02 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/12 17:50:12 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:24:30 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ t_complex	sum_complex(t_complex z1, t_complex z2)
 	return (result);
 }
 // square is trickier
+
 t_complex	square_complex(t_complex z)
 {
-	t_complex result;
+	t_complex	result;
 
 	result.real = (z.real * z.real) - (z.imaginary * z.imaginary);
 	result.imaginary = 2 * z.real * z.imaginary;
