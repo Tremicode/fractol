@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 18:35:55 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/12 17:49:52 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:37:52 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ static void	malloc_error(void)
 	perror("Problems with malloc");
 	exit(EXIT_FAILURE);
 }
+// hypotenusa 2 al cuadrado 4
 
 static void	data_init(t_fractal *fractal)
 {
-	fractal->escape_value = 4; // hypotenusa 2 al cuadrado
+	fractal->escape_value = 4;
 	fractal->image_quality_iteration = 90;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
-	fractal->zoom = 1.0; // zoom factor
+	fractal->zoom = 1.0;
 	fractal->WIDTH = 750;
 	fractal->HEIGHT = 750;
 }
@@ -55,7 +56,7 @@ void	fractal_init(t_fractal *fractal)
 	if (NULL == fractal->img.img_ptr)
 	{
 		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
-		mlx_destroy_display(fractal->mlx_connection); // mlx_ptr:
+		mlx_destroy_display(fractal->mlx_connection);
 		free(fractal->mlx_connection);
 		malloc_error();
 	}

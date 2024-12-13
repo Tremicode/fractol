@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/13 15:40:58 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:23:29 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include <stdlib.h> //malloc
 # include <unistd.h>
 
-/*# define HEIGHT 600
-# define WIDTH 600*/
 
 // (formato RGB hexadecimal)
 # define BLACK 0x000000
@@ -48,6 +46,7 @@
 # define OUTRAGEOUS_ORANGE 0xFF6E4A
 # define NEON_PINK 0xFF6EC7
 # define GREEN_FLUORESCENT 0x39FF14
+
 
 #define ERROR_MESSAGE "please enter \n\t" \
                        "\"./fractol mandelbrot\" or \n\t" \
@@ -83,7 +82,7 @@ typedef struct s_fractal // s o t porque
 	int		HEIGHT;
 	int		WIDTH;
 
-	/*t_color colors[24];*/
+	
 }			t_fractal;
 
 // prototipos
@@ -92,8 +91,7 @@ typedef struct s_fractal // s o t porque
 
 int	process_close(t_fractal *fractal); // close esc or x window.
 
-// render
-void		fractal_render(t_fractal *fractal);
+
 
 typedef struct s_complex // estructura creada porque no compila.
 {
