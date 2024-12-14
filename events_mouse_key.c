@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:56:18 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/14 15:32:33 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:48:28 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int	process_mouse(int button, int x, int y, t_fractal *fractal)
 	{
 		fractal->zoom *= 0.2;
 	}
-	fractal->shift_y = (map(y, 0, fractal->height, -2, 2) * (1 / fractal->zoom))
-		+ fractal->shift_y;
-	fractal->shift_x = (map(x, 0, fractal->width, -2, 2) * (1 / fractal->zoom))
-		+ fractal->shift_x;
+	fractal->shift_y = (map((double [5]){y, 0, fractal->height, -2, 2}) * (1
+				/ fractal->zoom)) + fractal->shift_y;
+	fractal->shift_x = (map((double [5]){x, 0, fractal->width, -2, 2}) * (1
+				/ fractal->zoom)) + fractal->shift_x;
 	fractal_render(fractal);
 	return (0);
 }

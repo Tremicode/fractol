@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/14 14:50:39 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 18:28:59 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,18 @@ static void	manage_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.real = (map(x, 0, fractal->width, -2, 2) * (1 / fractal->zoom))
-		+ fractal->shift_x;
-	z.imaginary = (map(y, 0, fractal->height, -2, 2) * (1 / fractal->zoom))
-		+ fractal->shift_y;
+	z.real = (map((double [5]){x, 0, fractal->width, -2, 2}) * (1
+				/ fractal->zoom)) + fractal->shift_x;
+	z.imaginary = (map((double [5]){y, 0, fractal->height, -2, 2}) * (1
+				/ fractal->zoom)) + fractal->shift_y;
 	mandelbrot_julia(&z, &c, fractal);
 	while (i < fractal->image_quality_iteration)
 	{
 		z = sum_complex(square_complex(z), c);
 		if ((z.real * z.real) + (z.imaginary * z.imaginary) > 4)
 		{
-			color = map(i, 0, fractal->image_quality_iteration, WHITE, BLACK);
+			color = (map((double [5]){i, 0, fractal->image_quality_iteration,
+						WHITE, BLACK}));
 			my_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
