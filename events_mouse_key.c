@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:56:18 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/13 12:36:36 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 12:53:29 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,11 @@ int	process_mouse(int button, int x, int y, t_fractal *fractal)
 	return (0);
 }
 
-void	events(t_fractal *fractal) // events_init
+void	events(t_fractal *fractal)
 {
-	mlx_hook(fractal->mlx_window, KeyPress, KeyPressMask, process_Key,
-		fractal);               // Teclado
+	mlx_hook(fractal->mlx_window, KeyPress, KeyPressMask, process_Key, fractal);
 	mlx_hook(fractal->mlx_window, ButtonPress, ButtonPressMask, process_mouse,
-		fractal);       // Mouse
+		fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
-		process_close, fractal); // Cerrar ventana
+		process_close, fractal);
 }

@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/13 16:23:29 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 13:18:18 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,6 @@ t_complex	square_complex(t_complex z);
 // hooks events
 int			process_key(int Keysym, t_fractal *fractal);
 int			process_mouse(int button, int x, int y, t_fractal *fractal);
+
 
 #endif
