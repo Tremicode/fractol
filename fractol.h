@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/14 13:18:18 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 14:39:06 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <stdio.h>  // debugging
 # include <stdlib.h> //malloc
 # include <unistd.h>
-
 
 // (formato RGB hexadecimal)
 # define BLACK 0x000000
@@ -47,33 +46,29 @@
 # define NEON_PINK 0xFF6EC7
 # define GREEN_FLUORESCENT 0x39FF14
 
-
 #define ERROR_MESSAGE "please enter \n\t" \
                        "\"./fractol mandelbrot\" or \n\t" \
                        "\"./fractol julia <value_1> <value_2>\"\n"
 
-
 typedef struct s_img
 {
-	void *img_ptr;    // map to find imagen
-	char *pixels_ptr; // list pixeles de la imagen
-	int bpp;          // label bits en cada pixel
-	int		endian;
-	int line_len; // how many pixeles per line image_quality_iteration;
-} t_img;          // nickname
+	void	*img_ptr;
+	char	*pixels_ptr;
+	int	bpp; 
+	int	endian;
+	int	line_len;
+}	t_img;
 
 // fractal id, mlx.image, hooks value
-typedef struct s_fractal // s o t porque
+typedef struct s_fractal
 {
 	char	*name;
 	void *mlx_connection; // mlx_init
 	void	*mlx_window;
-	t_img img; // white canvas
+	t_img img;// white canvas
 
-	// hooks member variables **
-	double escape_value;         // hypotenuse
-	int image_quality_iteration; // quality interations speed
-	// int process_key int Keysym, t_fractal *fractal;
+	double escape_value;
+	int image_quality_iteration;
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
@@ -82,21 +77,14 @@ typedef struct s_fractal // s o t porque
 	int		HEIGHT;
 	int		WIDTH;
 
-	
 }			t_fractal;
 
-// prototipos
+int	process_close(t_fractal *fractal);
 
-// hook events
-
-int	process_close(t_fractal *fractal); // close esc or x window.
-
-
-
-typedef struct s_complex // estructura creada porque no compila.
+typedef struct s_complex
 {
-	double real;
-	double imaginary;
+	double	real;
+	double	imaginary;
 }			t_complex;
 
 void		fractal_init(t_fractal *fractal);
@@ -106,22 +94,21 @@ void		fractal_render(t_fractal *fractal);
 void		events(t_fractal *fractal);
 
 // strings utils
-int			ft_strncmp(char *s1, char *s2, int n);
-void		putstr_fd(char *s, int fd);
-double		atofdouble(char *s);
+int	ft_strncmp(char *s1, char *s2, int n);
+void	putstr_fd(char *s, int fd);
+double	atofdouble(char *s);
 
 // fractal init
-void		fractal_init(t_fractal *fractal);
+void	fractal_init(t_fractal *fractal);
 
 // math
-double		map(double unscaled_num, double new_min, double new_max,
-				double old_min, double old_max);
+double	map(double unscaled_num, double new_min, double new_max,
+		double old_min, double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 
 // hooks events
-int			process_key(int Keysym, t_fractal *fractal);
-int			process_mouse(int button, int x, int y, t_fractal *fractal);
-
+int	process_key(int Keysym, t_fractal *fractal);
+int	process_mouse(int button, int x, int y, t_fractal *fractal);
 
 #endif

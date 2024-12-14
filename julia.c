@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:49:16 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/13 18:55:55 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 13:21:25 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,9 @@ double	atofdouble(char *s)
 			sign = -sign;
 		++s;
 	}
-	
 	int_part = convert_int_part(&s);
 	fraction_part = convert_fraction_part(&s, &divisor);
-	
 	if (*s != '\0')
-		exit(1); 
-
+		exit(1);
 	return ((int_part + fraction_part) * sign);
 }
