@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:49:01 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/13 13:43:40 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:35:08 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+		putstr_fd("please insert:\n\t./fractol mandelbrot "
+			"or\n\t./fractol julia <value_1> <value_2>\n", STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 	fractal_init(&fractal);

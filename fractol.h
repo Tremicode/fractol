@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/14 19:12:20 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:25:09 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define NEON_PINK 0xFF6EC7
 # define GREEN_FLUORESCENT 0x39FF14
 
-# define ERROR_MESSAGE "enter\n\t\"./fractol mandelbrot\" or\n\t\"./fractol julia <value_1> <value_2>\"\n"
+/*# define ERROR_MESSAGE "enter\n\t\"./mandelbrot\" or\n\t\"./julia n1 n2\"\n"*/
 
 typedef struct s_img
 {
