@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:49 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/14 14:39:06 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 15:25:08 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ typedef struct s_fractal
 	t_img img;// white canvas
 
 	double escape_value;
-	int image_quality_iteration;
+	int	image_quality_iteration;
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
 	double	julia_x;
 	double	julia_y;
-	int		HEIGHT;
-	int		WIDTH;
+	int		height;
+	int		width;
 
 }			t_fractal;
 
@@ -108,7 +108,7 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 
 // hooks events
-int	process_key(int Keysym, t_fractal *fractal);
+int	process_key(int keysym, t_fractal *fractal);
 int	process_mouse(int button, int x, int y, t_fractal *fractal);
 
 #endif

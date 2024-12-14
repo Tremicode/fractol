@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 18:35:55 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/13 16:37:52 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 14:49:03 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static void	data_init(t_fractal *fractal)
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
-	fractal->WIDTH = 750;
-	fractal->HEIGHT = 750;
+	fractal->width = 750;
+	fractal->height = 750;
 }
 
 void	fractal_init(t_fractal *fractal)
@@ -44,7 +44,7 @@ void	fractal_init(t_fractal *fractal)
 	if (NULL == fractal->mlx_connection)
 		malloc_error();
 	fractal->mlx_window = mlx_new_window(fractal->mlx_connection,
-			fractal->WIDTH, fractal->HEIGHT, fractal->name);
+			fractal->width, fractal->height, fractal->name);
 	if (NULL == fractal->mlx_window)
 	{
 		mlx_destroy_display(fractal->mlx_connection);
@@ -52,7 +52,7 @@ void	fractal_init(t_fractal *fractal)
 		malloc_error();
 	}
 	fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection,
-			fractal->WIDTH, fractal->HEIGHT);
+			fractal->width, fractal->height);
 	if (NULL == fractal->img.img_ptr)
 	{
 		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);

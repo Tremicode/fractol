@@ -6,7 +6,7 @@
 /*   By: ctremino <ctremino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:07:44 by ctremino          #+#    #+#             */
-/*   Updated: 2024/12/14 13:07:41 by ctremino         ###   ########.fr       */
+/*   Updated: 2024/12/14 14:50:39 by ctremino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static void	manage_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.real = (map(x, 0, fractal->WIDTH, -2, 2) * (1 / fractal->zoom))
+	z.real = (map(x, 0, fractal->width, -2, 2) * (1 / fractal->zoom))
 		+ fractal->shift_x;
-	z.imaginary = (map(y, 0, fractal->HEIGHT, -2, 2) * (1 / fractal->zoom))
+	z.imaginary = (map(y, 0, fractal->height, -2, 2) * (1 / fractal->zoom))
 		+ fractal->shift_y;
 	mandelbrot_julia(&z, &c, fractal);
 	while (i < fractal->image_quality_iteration)
@@ -71,10 +71,10 @@ void	fractal_render(t_fractal *fractal)
 	int	y;
 
 	y = -1;
-	while (++y < fractal->HEIGHT)
+	while (++y < fractal->height)
 	{
 		x = -1;
-		while (++x < fractal->WIDTH)
+		while (++x < fractal->width)
 		{
 			manage_pixel(x, y, fractal);
 		}
